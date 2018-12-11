@@ -18,6 +18,7 @@ def index():
 @app.route('/game')
 def game():
     cards = get_cards("easy")
+    randomized_pairs(cards)
     return render_template("game.html",cards=cards)
 
 

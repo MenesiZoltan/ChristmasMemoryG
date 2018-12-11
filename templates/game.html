@@ -1,6 +1,11 @@
 {% extends "layout.html" %}
 
 
+{% macro image(url) %}
+    <img height="100" width="100" src="{{url_for("static",filename=url)}}">
+{% endmacro %}
+
+
 {% block title %}
     Memory Game | New Game
 {% endblock %}
@@ -26,7 +31,7 @@
         {%if cards %}
             {% for card in cards %}
                 <div class="card" data-id="{{card.id}}">
-                    <img height="100" width="100" src="{{card.url}}">
+                    {{image(card.url)}}
                 </div>
             {% endfor %}
         {% endif %}
