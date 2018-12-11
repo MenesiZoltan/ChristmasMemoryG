@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Zoli, Peti">
+        <title>{% block title %}{% endblock %}</title>
+        {% block script %}{% endblock %}
+        {% block style %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            {% block page_title %}{% endblock %}
+            <nav>
+                {% block navigation %}{% endblock %}
+            </nav>
+        </header>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>
