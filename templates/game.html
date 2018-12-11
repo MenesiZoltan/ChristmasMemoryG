@@ -22,5 +22,13 @@
 
 
 {% block content %}
-
+    <div id="card-container">
+        {%if cards %}
+            {% for card in cards %}
+                <div class="card" data-id="{{card.id}}">
+                    <img height="100" width="100" src="{{card.url}}">
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock %}

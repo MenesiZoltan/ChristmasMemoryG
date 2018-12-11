@@ -1,6 +1,11 @@
 from flask import Flask, render_template, url_for, redirect, request
+from data_manager import *
+
 
 app = Flask(__name__)
+
+
+card_number = 5
 
 
 
@@ -12,7 +17,8 @@ def index():
 
 @app.route('/game')
 def game():
-    return render_template("game.html")
+    cards = get_cards("easy")
+    return render_template("game.html",cards=cards)
 
 
 

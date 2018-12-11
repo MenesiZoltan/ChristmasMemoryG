@@ -1,1 +1,24 @@
 
+.card {
+    display: inline-block;
+    border: 2px solid black;
+    /*width: 110px;*/
+    /*height: 110px;*/
+    padding: 5px;
+    background-color: lightgrey;
+    box-shadow: 1px 1px 1px 1px black;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+
+.card:hover {
+    background-color: yellow;
+}
+auto
+
+.card h3{
+    display: block;
+    margin: 0 auto;
+}
