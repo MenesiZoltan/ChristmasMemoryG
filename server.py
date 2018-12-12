@@ -4,9 +4,8 @@ from data_manager import *
 
 app = Flask(__name__)
 
-
-card_number = 5
-
+card_number = 2
+difficulty = "easy"
 
 
 @app.route('/')
@@ -17,7 +16,7 @@ def index():
 
 @app.route('/game')
 def game():
-    cards = get_cards("easy")
+    cards = get_cards("pictures", difficulty, card_number)
     randomized_pairs(cards)
     return render_template("game.html",cards=cards)
 

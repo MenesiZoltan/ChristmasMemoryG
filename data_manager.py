@@ -10,7 +10,14 @@ def randomized_pairs(cards):
 
 
 @connection_handler
-def get_cards(cursor,table):
-    query = sql.SQL(""" SELECT * FROM {}""").format(sql.Identifier(table))
-    cursor.execute(query)
+def get_cards(cursor,table, difficulty, card_number):
+    query = sql.SQL(''' SELECT * FROM {}
+                        WHERE difficulty = %(difficulty)s
+                        ORDER BY random()
+                        LIMIT %(card_number)s
+                        ''').format(sql.Identifier(table))
+
+    params = {"difficulty": difficulty, "card_number": card_number}
+    cursor.execute(query, params)
     return cursor.fetchall()
+

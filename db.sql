@@ -1,28 +1,15 @@
-create table if not exists easy
+create table if not exists pictures
 (
 	id serial not null
 		constraint easy_pk
 			primary key,
-	url text
-);
-
-create table if not exists medium
-(
-	id serial not null
-		constraint medium_pk
-			primary key,
-	url text
-);
+	url text,
+	difficulty text
+)
+;
 
 
-create table if not exists hard
-(
-	id serial not null
-		constraint hard_pk
-			primary key,
-	url integer
-);
-
+;
 
 create table if not exists highscore
 (
@@ -31,8 +18,13 @@ create table if not exists highscore
 			primary key,
 	nickname text,
 	score integer
-);
+)
+;
+
+
+;
 
 create unique index if not exists highscore_nickname_uindex
-	on highscore (nickname);
+	on highscore (nickname)
+;
 
