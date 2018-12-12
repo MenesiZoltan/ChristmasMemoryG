@@ -1,39 +1,39 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{url_for("static",filename="css/game.css")}}">
+  <script defer type="text/javascript" src="{{url_for("static",filename="js/game.js")}}"></script>
+  <script defer type="text/javascript" src="{{url_for("static",filename="js/snow.js")}}"></script>
+</head>
+<body>
 
 
-{% macro image(url) %}
-    <img height="100" width="100" src="{{url_for("static",filename=url)}}">
-{% endmacro %}
+  <!--<section class="memory-game">-->
+    <!--<div class="memory-card" data-framework="aurelia">-->
+      <!--<img class="front-face" src="img/aurelia.svg" alt="Aurelia" />-->
+      <!--<img class="back-face" src="back.png" alt="JS Badge" />-->
+    <!--</div>-->
+  <!--</section>-->
 
 
-{% block title %}
-    Memory Game | New Game
-{% endblock %}
-
-
-{% block script %}
-    <link rel="script" href="{{url_for("static", filename="js/script.js")}}">
-{% endblock %}
-
-
-{% block style %}
-    <link rel="stylesheet" href="{{url_for("static",filename="css/style.css")}}">
-{% endblock %}
-
-
-{% block page_title %}
-    <h1 id="main-title">Memory Game | New Game: {{  session.get("name", "")  }}</h1>
-{% endblock %}
-
-
-{% block content %}
-    <div id="card-container">
+    <section class="board">
         {%if cards %}
             {% for card in cards %}
                 <div class="card" data-id="{{card.id}}">
-                    {{image(card.url)}}
+                    <img class="card_back" src="../static/pics/front.png">
+                    <img class="card_front" src="../static/pics/{{card.filename}}">
                 </div>
             {% endfor %}
         {% endif %}
+    </section>
+
+
+
+    <div id="snowflakeContainer">
+      <p class="snowflake">*</p>
     </div>
-{% endblock %}
+
+
+</body>
+</html>
