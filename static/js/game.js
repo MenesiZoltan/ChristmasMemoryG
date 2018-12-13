@@ -1,3 +1,5 @@
+let win_event  = new Event("win");
+
 $(document).ready(function() {
 	$('form').on('submit', function(event) {
 		$.ajax({
@@ -47,6 +49,8 @@ function build_game (cards) {
 
 		let card_front = document.createElement("img");
 		card_front.classList.add("card_front");
+		// card_front.setAttribute("width", "75");
+		// card_front.setAttribute("height", "150");
 		card_front.setAttribute("src", "../static/pics/" + card.filename);
 		new_card.appendChild(card_front);
 
@@ -57,6 +61,7 @@ function build_game (cards) {
 }
 
 
+
 function cards_fade_in(){
     setTimeout(function(){
         let dom_element = document.querySelectorAll(".card");
@@ -65,6 +70,7 @@ function cards_fade_in(){
     }
     },1300);
 }
+
 
 
 function click_handler () {
@@ -82,6 +88,7 @@ function click_handler () {
  				card.classList.add("paired");
  			}
  			board.dataset.card_number -= 1;
+
 		} else {
 			setTimeout(function(){
 		 	for (let card of flipped) {
@@ -95,7 +102,47 @@ function click_handler () {
 		 	board.dataset.locked = "false";
  		 	},2000);
     }
+    if (board.dataset.card_number === "0"){
+ 				board.addEventListener("win",win_handler);
+ 				board.dispatchEvent(win_event);
+			}
 }
+
+
+
+function win_handler(){
+    $.ajax(
+        {   data : {win: true},
+			type : 'POST',
+			url : 'http://127.0.0.1:5000/win' })
+		.done(function(data) {
+				console.log(data.response);
+				board_fade_out();
+		});
+		event.preventDefault();
+}
+
+
+
+function board_fade_out(){
+    setTimeout(function(){
+        let dom_element = document.querySelectorAll(".card");
+        for (let element of dom_element) {
+            element.classList.remove("paired");
+            element.classList.remove("flip");
+    }},1000);
+    setTimeout(function(){
+        let dom_element = document.querySelectorAll(".card");
+        for (let element of dom_element) {
+            element.classList.remove("fade_in");
+            element.classList.add("card_fade_out");
+    }},2000);
+    let board = document.querySelector(".board")
+    setTimeout(function(){board.remove()},3000);
+}
+
+
+
 
 
 function main () {

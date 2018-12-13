@@ -29,7 +29,7 @@ body {
 /*----------------------------MEMORY CARDS----------------------------*/
 .card {
     width: calc(20% - 10px);
-    height: 150px;
+    height: 220px;
     margin: 5px;
     position: relative;
     transform: scale(1);

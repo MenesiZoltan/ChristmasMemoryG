@@ -30,6 +30,7 @@ def game():
 
 @app.route("/win", methods=["POST"])
 def win():
+    print("lofasz")
     return jsonify({"response": "ok"})
 
 

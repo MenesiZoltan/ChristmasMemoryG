@@ -2,7 +2,7 @@ import os, psycopg2, psycopg2.extras
 
 
 
-"""def get_connection_string():
+def get_connection_string():
     user_name = os.environ.get('PSQL_USER_NAME')
     password = os.environ.get('PSQL_PASSWORD')
     host = os.environ.get('PSQL_HOST')
@@ -17,17 +17,15 @@ import os, psycopg2, psycopg2.extras
         )
     else:
         raise KeyError('Some necessary environment variable(s) are not defined')
+
 """
-
-
-
 def get_connection_string():
     user_name = "peterforro"
     password = "ifur6iwillb9!"
     host = "localhost"
     database_name = ""
     return f'postgresql://{user_name}:{password}@{host}/{database_name}'
-   
+"""
 
 
 def open_database():
