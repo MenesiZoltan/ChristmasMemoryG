@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+body {
+    height: 100vh;
+    display: flex;
+    background-image: url("background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/*-------------------------GAME BOARD----------------------------*/
+.board {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 10000px;
+    opacity: 1;
+}
+
+
+
+/*----------------------------MEMORY CARDS----------------------------*/
+.card {
+    width: calc(20% - 10px);
+    height: 150px;
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    opacity: 0;
+}
+
+
+.card:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+
+
+.card.flip, .card.paired {
+    transform: rotateY(180deg);
+}
+
+
+.card_front, .card_back {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: darkgrey;
+    backface-visibility: hidden;
+}
+
+
+.card_front:hover, .card_back:hover{
+    background: cadetblue;
+}
+
+
+.card_front {
+    transform: rotateY(180deg);
+}
+
+
+.card_fade_in {
+    opacity: 1;
+    transition: 1s;
+}
+
+
+.card_fade_out {
+    opacity: 0;
+    transition: 1s;
+}
+
+/*---------------------------------FORM--------------------------------*/
+/*form {*/
+    /*width: 30%;*/
+    /*height: 300px;*/
+    /*margin: auto;*/
+    /*display: flex;*/
+    /*box-shadow: 2px 2px 2px 2px black;*/
+    /*background-color: darkgrey;*/
+    /*border-radius: 20px;*/
+/*}*/
+
+/*input {*/
+    /*width: 100%;*/
+    /*height: 33.3333%;*/
+    /*box-shadow: 1px 1px 1px 1px black;*/
+/*}*/
+
+
+
+
+.form_fade_out {
+    opacity: 0;
+    transition: 1s;
+}
+
+
+
+
+/*---------------------------------SNOW FALLING--------------------------------*/
+#snowflakeContainer {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+
+.snowflake {
+    padding-left: 15px;
+    font-family: Cambria, Georgia, serif;
+    font-size: 14px;
+    line-height: 24px;
+    position: fixed;
+    color: #686868;
+    user-select: none;
+    z-index: -1000;
+}
