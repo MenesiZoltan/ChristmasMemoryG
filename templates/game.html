@@ -1,39 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="{{url_for("static",filename="css/game.css")}}">
-  <script defer type="text/javascript" src="{{url_for("static",filename="js/game.js")}}"></script>
-  <script defer type="text/javascript" src="{{url_for("static",filename="js/snow.js")}}"></script>
-</head>
-<body>
+    <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="{{url_for("static",filename="css/game.css")}}">
+      <script defer src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+      <script defer type="text/javascript" src="{{url_for("static",filename="js/game.js")}}"></script>
+      <script defer type="text/javascript" src="{{url_for("static",filename="js/snow.js")}}"></script>
+    </head>
+    <body>
 
-
-  <!--<section class="memory-game">-->
-    <!--<div class="memory-card" data-framework="aurelia">-->
-      <!--<img class="front-face" src="img/aurelia.svg" alt="Aurelia" />-->
-      <!--<img class="back-face" src="back.png" alt="JS Badge" />-->
-    <!--</div>-->
-  <!--</section>-->
-
-
-    <section class="board">
-        {%if cards %}
-            {% for card in cards %}
-                <div class="card" data-id="{{card.id}}">
-                    <img class="card_back" src="../static/pics/front.png">
-                    <img class="card_front" src="../static/pics/{{card.filename}}">
-                </div>
-            {% endfor %}
-        {% endif %}
-    </section>
+        <form id="login_form">
+            <input type="text" id="nick_name" placeholder="nickname">
+            <select id="difficulty">
+                <option value="5">Easy</option>
+                <option value="10">Medium</option>
+                <option value="10">Hard</option>
+            </select>
+            <input type="submit" value="Start Game">
+        </form>
 
 
 
-    <div id="snowflakeContainer">
-      <p class="snowflake">*</p>
-    </div>
 
 
-</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--<div id="snowflakeContainer">-->
+          <!--<p class="snowflake">*</p>-->
+        <!--</div>-->
+
+
+    </body>
 </html>
