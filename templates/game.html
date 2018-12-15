@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-      <meta charset="UTF-8">
-      <link rel="stylesheet" href="{{url_for("static",filename="css/game.css")}}">
-      <script defer src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-      <script defer type="text/javascript" src="{{url_for("static",filename="js/game.js")}}"></script>
-      <script defer type="text/javascript" src="{{url_for("static",filename="js/snow.js")}}"></script>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{url_for("static",filename="css/game.css")}}">
+        <script defer src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script defer type="text/javascript" src="{{url_for("static",filename="js/game.js")}}"></script>
+        <script defer type="text/javascript" src="{{url_for("static",filename="js/snow.js")}}"></script>
+        <link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
     </head>
     <body>
-
+        <img id="santa_hat" src="../static/pics/santa.png">
         <form id="login_form">
+            <h1>Xmas Memory Game</h1>
             <input type="text" id="nick_name" placeholder="nickname">
             <select id="difficulty">
                 <option value="" disabled selected>Difficulty</option>
@@ -19,35 +21,8 @@
             </select>
             <input type="submit" value="Start Game" class="submit">
         </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--<div id="snowflakeContainer">-->
-          <!--<p class="snowflake">*</p>-->
-        <!--</div>-->
-
-
+        <div id="snowflakeContainer">
+            <p class="snowflake">*</p>
+        </div>
     </body>
 </html>

@@ -1,0 +1,63 @@
+body {
+    background-color: #272B2D;
+    color: white;
+}
+
+
+
+
+/*----------------------------header-----------------------------*/
+header h1, header form {
+    display: flex;
+}
+
+
+/*----------------------------flashes--------------------------*/
+.flashes {
+    display: block;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px 1px black;
+    font-size: 30px;
+    padding: 10px 15px;
+    text-align: center;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.success {
+    background-color: green;
+}
+
+.fail{
+    background-color: red;
+}
+
+
+/*------------------------image container--------------------*/
+#images{
+    display: block;
+    margin: 100px auto;
+    background-color: darkgrey;
+    width: 30%;
+    padding: 15px;
+    color: black;
+    box-shadow: 2px 2px 2px 2px black;
+    border-radius: 25px;
+}
+
+#images table{
+    width: 90% ;
+}
+
+
+#images img{
+    transition: 0.3s;
+}
+
+
+#images img:hover {
+    box-shadow: 2px 2px 2px 2px red;
+    transition: 0.3s;
+}
