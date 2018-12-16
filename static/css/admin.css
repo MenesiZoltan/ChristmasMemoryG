@@ -7,15 +7,44 @@ body {
 
 
 /*----------------------------header-----------------------------*/
-header h1, header form {
-    display: flex;
+header {
+    margin-top: 50px;
+    height: 50px;
+    background-color: darkgrey;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px 2px black;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
 }
+
+header #title{
+    display: inline-block;
+    height: 100%;
+    width: 15%;
+    padding-left: 30px;
+}
+
+header #title h1 {
+    display: block;
+    margin: 5px auto;
+}
+
+header #upload {
+    margin: 0px;
+    display: inline-block;
+    /*height: 100%;*/
+    width:40%;
+    padding-left: 30px;
+}
+
+
 
 
 /*----------------------------flashes--------------------------*/
 .flashes {
     display: block;
-    margin: 20px auto;
+    margin: 45px auto;
     width: 50%;
     border-radius: 20px;
     box-shadow: 1px 1px 1px 1px black;
@@ -36,7 +65,7 @@ header h1, header form {
 
 
 /*------------------------image container--------------------*/
-#images{
+#image_details{
     display: block;
     margin: 100px auto;
     background-color: darkgrey;
@@ -47,17 +76,56 @@ header h1, header form {
     border-radius: 25px;
 }
 
-#images table{
-    width: 90% ;
+
+
+/*------------------------image cards------------------------*/
+.image_card {
+    height: 150px;
+    margin: 20px;
 }
 
 
-#images img{
-    transition: 0.3s;
+.image_card .chekboxes {
+    width: 10%;
+    height: 100%;
+    display: inline-block;
 }
 
 
-#images img:hover {
-    box-shadow: 2px 2px 2px 2px red;
-    transition: 0.3s;
+.image_card .chekboxes input{
+    display: block;
+    margin: 75px auto;
 }
+
+
+.image_card .image {
+    width: 20%;
+    display: inline-block;
+}
+
+
+.image_card .image img {
+    display: block;
+    margin: auto;
+}
+
+
+.image_card .details{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 50px;
+    width: 50%;
+    height: 100%;
+}
+
+.image_card .details ul{
+    display: block;
+    margin: auto;
+
+}
+
+/*-------------------delete card------------------*/
+/*#delete-card {*/
+    /*position: fixed;*/
+    /*left: 20px;*/
+/*}*/

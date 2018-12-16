@@ -7,11 +7,15 @@
     </head>
     <body>
         <header class="card" id="upload">
-            <h1>Admin Page</h1>
-            <form method="post" enctype="multipart/form-data" action="{{ url_for('admin') }}">
-                <input type="file" name="images" multiple required>
-                <input type="submit" value="upload">
-            </form>
+            <div id="title">
+                <h1>ADMIN PAGE</h1>
+            </div>
+            <div id="upload">
+                <form method="post" enctype="multipart/form-data" action="{{ url_for('admin') }}">
+                    <input type="file" name="images" multiple required>
+                    <input type="submit" value="upload">
+                </form>
+            </div>
         </header>
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -21,20 +25,32 @@
             {% endif %}
         {% endwith %}
         {% if images %}
-            <div id="images">
+            <div id="image_details">
+                <button id="selectAll">Select All</button>
                 <form id="delete_images" action="{{ url_for("delete_image") }}" method="post">
                      {% for image in images %}
-                         <input class="checkboxes" type="checkbox" name="{{ image.filename }}">
-                         <div class="image">
-                            <a href="{{ url_for("static",filename="pics/"+image.filename) }}">
+                        <div class="image_card">
+                            <div class="chekboxes">
+                                <input type="checkbox" name="{{ image.filename }}">
+                            </div>
+                            <div class="image">
+                                <a href="{{ url_for("static",filename="pics/"+image.filename) }}">
                                     <img src="{{ url_for("static",filename="pics/"+image.filename) }}" width="100" height="150">
-                            </a>
-                            <p><b>ID:</b>{{ image.id }}<br><b>Path:</b> static/pics/{{ image.filename }}</p>
+                                </a>
+                            </div>
+                            <div class="details">
+                                <ul>
+                                    <li><b>ID: </b>{{ image.id }}<br></li>
+                                    <li><b>Path: </b>static/pics/{{ image.filename }}</li>
+                                </ul>
+                            </div>
                          </div>
                     {% endfor %}
-                    <input type="submit"  value="Delete images">
+                    <div class id="delete-card">
+                        <input type="submit"  value="Delete images">
+                    </div>
                 </form>
-            <div>
+            </div>
         {% endif %}
     </body>
 </html>
